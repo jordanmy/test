@@ -1,0 +1,23 @@
+<h1>Administracion de usuarios</h1>
+
+<button id="btnadd">Agregar usuario</button>
+<div class="table-responsive">
+    <table class="table" >
+        <th>Usuario</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Departamentos</th>
+        <th>Cargo</th>
+        <th>Email</th>
+        <th>Acciones</th>
+        <tr *ngFor="let person of persona; let i;">
+            <td>{{person.usuario}}</td>
+            <td>{{person.nombres}}</td>
+            <td>{{person.apellidos}}</td>
+            <td>{{person.departamento}}</td>
+            <td>{{person.cargo}}</td>
+            <td>{{person.email}}</td>
+            <td><button id="i">Modificar</button><button id="i">Eliminar</button></td>
+        </tr>
+      </table>
+</div>
