@@ -1,7 +1,8 @@
 <br>
 <div class="panel-heading" style="margin: 20px;">
     <h1>Administracion de usuarios</h1>
-    <button id="btnadd" (click)="addrow()">Crear nuevo usuario</button>
+    <button id="btnadd" class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Crear nuevo usuario</button>
+    <!-- <button id="btnadd" (click)="addrow()">Crear nuevo usuario</button> -->
 </div>
 <div class="row" style="margin: 20px;">
     <div class="col-sm-2">
@@ -49,3 +50,33 @@
         </div>
     </div>
 </div>
+
+
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Agregar Usuario</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">X</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <label>Usuario</label>
+            <input type="text" class="form-control" formControlName="usuario" />
+            <label>Nombres</label>
+            <input type="text" class="form-control" formControlName="nombres" />
+            <label>Apellidos</label>
+            <input type="text" class="form-control" formControlName="apellidos" />
+            <label>Departamento</label>
+            <input type="text" class="form-control" formControlName="departamento" />
+            <label>Cargo</label>
+            <input type="text" class="form-control" formControlName="cargo" />
+            <label>Email</label>
+            <input type="text" class="form-control" formControlName="email" />
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cerrar</button>
+        <button class="btn btn-md btn-primary text-upper" type="button" (click)="onSubmit();modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
