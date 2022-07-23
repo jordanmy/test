@@ -14,8 +14,27 @@ export class BodyComponent{
     new Persona ("Usuario 4","Jordan","Yanez","Tecnologia","Desarrollador","jordanyanez1995@gmail.com")
   ] ;
 
-  public delete(position: number)
+  addrow()
   {
-    this.persona.splice(position,1)
+    let longitud : number = 0;
+    longitud = this.persona.length + 1;
+    this.persona.push(new Persona ("Usuario " + longitud,"Jordan","Yanez","Tecnologia","Desarrollador","jordanyanez1995@gmail.com"));
+  }
+
+  deleteRow(usuario: any){
+    for(let i = 0; i < this.persona.length; ++i){
+        if (this.persona[i].usuario === usuario) {
+            this.persona.splice(i,1);
+        }
+    }
+    
+  }
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
   }
 }

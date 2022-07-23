@@ -1,23 +1,52 @@
-<h1>Administracion de usuarios</h1>
+<br>
+<div class="panel-heading" style="margin: 20px;">
+    <h1>Administracion de usuarios</h1>
+    <button id="btnadd" (click)="addrow()">Crear nuevo usuario</button>
+</div>
+<div class="row" style="margin: 20px;">
+    <div class="col-sm-2">
+        <select class="form-control" ng-style="{'width': getMaxLength() + 'px'}" name="miselect">
+        <option [value]="person" *ngFor="let person of persona;">{{person.cargo}}</option>
+        </select>
+    </div>
+    <div class="col-sm-2">
+        <select class="form-control" ng-style="{'width': getMaxLength() + 'px'}" name="miselect">
+            <option [value]="person" *ngFor="let person of persona;">{{person.departamento}}</option>
+        </select>
+    </div>
 
-<button id="btnadd">Agregar usuario</button>
-<div class="table-responsive">
-    <table class="table" >
-        <th>Usuario</th>
-        <th>Nombres</th>
-        <th>Apellidos</th>
-        <th>Departamentos</th>
-        <th>Cargo</th>
-        <th>Email</th>
-        <th>Acciones</th>
-        <tr *ngFor="let person of persona; let i;">
-            <td>{{person.usuario}}</td>
-            <td>{{person.nombres}}</td>
-            <td>{{person.apellidos}}</td>
-            <td>{{person.departamento}}</td>
-            <td>{{person.cargo}}</td>
-            <td>{{person.email}}</td>
-            <td><button id="i">Modificar</button><button id="i">Eliminar</button></td>
-        </tr>
-      </table>
+
+</div>
+<br><br>
+<br>
+
+<hr>
+<div class="principal" style="margin: 20px;">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <caption>Total de registros {{persona.length}}</caption>
+                <thead>
+                    <th>Usuario</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Departamentos</th>
+                    <th>Cargo</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let person of persona;">
+                        <td>{{person.usuario}}</td>
+                        <td>{{person.nombres}}</td>
+                        <td>{{person.apellidos}}</td>
+                        <td>{{person.departamento}}</td>
+                        <td>{{person.cargo}}</td>
+                        <td>{{person.email}}</td>
+                        <td><button>Actualizar</button> &nbsp; &nbsp; &nbsp; <button id="remove" (click)="deleteRow(person.usuario)">DELETE ROW</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
